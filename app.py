@@ -33,7 +33,7 @@ class Ui(QtWidgets.QMainWindow):
       if len(user_text) == 0 or len(phrase) == 0:
          self.ciphertextLabel.setText("Ciphertext should appear here....")
       else:
-         self.ciphertextLabel.setText(user_text)
+         self.ciphertextLabel.setText(vigenereEncrypt(user_text, generateKey(user_text, phrase)))
 
    def plaintextBoxInputChanged(self):
       """
@@ -44,7 +44,7 @@ class Ui(QtWidgets.QMainWindow):
       if len(user_text) == 0 or len(phrase) == 0:
          self.ciphertextLabel.setText("Ciphertext should appear here....")
       else:
-         self.ciphertextLabel.setText(user_text)
+         self.ciphertextLabel.setText(vigenereEncrypt(user_text, generateKey(user_text, phrase)))
 
 app = QtWidgets.QApplication(sys.argv)
 window = Ui()

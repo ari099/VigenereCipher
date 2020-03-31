@@ -50,4 +50,12 @@ def vigenereDecrypt(cipher_text, key):
    :param cipher_text:
    :param key:
    """
-   pass
+   alphabet = string.ascii_lowercase
+   plaintext = str()
+   for i in range(0, len(cipher_text)):
+      if cipher_text[i].lower() in alphabet:
+         decipher_alphabet = rotateRight(alphabet, alphabet.index(key[i].lower()))
+         plaintext += decipher_alphabet[alphabet.index(cipher_text[i].lower())] if cipher_text[i].islower() else decipher_alphabet[alphabet.index(cipher_text[i].lower())].upper()
+      else: plaintext += cipher_text[i]
+   
+   return plaintext
